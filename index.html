@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DOCTORS CLINIC | Baner, Pune</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #1e1e2a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary: #0d9488; /* teal/cyan */
+            --primary-light: #2dd4bf;
+            --primary-soft: #14b8a6;
+            --secondary-blue: #2563eb;
+            --bg-blue-gradient: linear-gradient(145deg, #e0f2fe 0%, #bae6fd 100%);
+            --beige-bg: #f5f1e8;
+            --card-white: #ffffff;
+            --text-dark: #1e293b;
+            --text-soft: #334155;
+            --shadow-sm: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            --shadow-md: 0 20px 30px -10px rgba(0, 150, 150, 0.15), 0 8px 15px rgba(0,0,0,0.05);
+            --shadow-hover: 0 30px 40px -15px rgba(13, 148, 136, 0.3);
+            --radius-card: 1.5rem;
+            --radius-btn: 3rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--text-dark);
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        /* navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            transition: box-shadow 0.3s;
+            padding: 0.7rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(13,148,136,0.1);
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 12px 30px -10px rgba(13,148,136,0.2);
+        }
+
+        .logo h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, #0284c7 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+            padding: 0.3rem 0;
+            transition: color 0.2s;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s ease;
+        }
+
+        .nav-menu li a:hover::after,
+        .nav-menu li a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: var(--radius-btn);
+            font-weight: 600;
+            box-shadow: 0 10px 15px -8px var(--primary);
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: #0f766e;
+            transform: scale(1.03);
+            box-shadow: 0 15px 20px -10px var(--primary);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(115deg, rgba(0,0,0,0.45) 0%, rgba(37,99,235,0.35) 100%), url('image15.png') center/cover no-repeat;
+            background-blend-mode: overlay;
+            padding: 3rem 0 5rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.7rem;
+            line-height: 1.2;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin: 1.5rem 0;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .info-chip {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.95rem;
+        }
+
+        .info-chip i {
+            color: var(--primary-light);
+            margin-right: 0.4rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2.3rem;
+            border-radius: var(--radius-btn);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0f766e;
+            box-shadow: 0 15px 25px -10px var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* image slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            aspect-ratio: 4/3;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.5);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .prev { left: 15px; }
+        .next { right: 15px; }
+
+        .dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        /* intro / about / cards */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0d9488, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        .icon-card {
+            background: var(--card-white);
+            padding: 2rem 1.5rem;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-sm);
+            transition: 0.25s ease;
+            text-align: center;
+            border: 1px solid rgba(13,148,136,0.05);
+        }
+
+        .icon-card i {
+            font-size: 2.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .icon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .testimonial-card {
+            background: var(--card-white);
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 6px solid var(--primary);
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin: 1rem 0;
+        }
+
+        /* about page */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 2.5rem;
+            width: 100%;
+            box-shadow: var(--shadow-md);
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mv-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+        }
+        .mv-card:hover { box-shadow: var(--shadow-hover); }
+
+        /* services grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 1.8rem;
+        }
+
+        .service-content i {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* FAQ accordion */
+        .faq-item {
+            background: white;
+            border-radius: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.2s;
+        }
+
+        .faq-question:hover { background: #f0f9ff; }
+        .faq-answer {
+            max-height: 0;
+            padding: 0 2rem;
+            transition: max-height 0.4s ease;
+            background: #fafafa;
+            color: var(--text-soft);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 1.5rem 2rem;
+        }
+
+        .faq-question i { transition: 0.3s; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+
+        /* contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-details {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 220px;
+            background: #cbd5e1;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #334155;
+            margin: 1.5rem 0;
+            background: linear-gradient(145deg, #e2e8f0, #cbd5e1);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 3rem;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(13,148,136,0.2);
+        }
+
+        .success-message {
+            background: #d1fae5;
+            padding: 1rem;
+            border-radius: 3rem;
+            text-align: center;
+            color: #065f46;
+            margin-top: 1rem;
+            font-weight: 600;
+            animation: fadeIn 0.5s;
+        }
+
+        /* footer */
+        footer {
+            background: #1e293b;
+            color: #f1f5f9;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+            gap: 2rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+
+        .social-icons i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--primary-light);
+        }
+
+        /* animations */
+        [data-aos] {
+            opacity: 0;
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        [data-aos].aos-animate { opacity: 1; }
+        .fade-up { transform: translateY(30px); }
+        .aos-animate.fade-up { transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .grid-4 { grid-template-columns: repeat(2,1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem; }
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem 0;
+            }
+            .nav-menu.active { display: flex; }
+            .hamburger { display: block; }
+            .hero-grid { grid-template-columns: 1fr; }
+            .about-grid, .contact-grid, .mission-vision { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        .beige-bg { background-color: var(--beige-bg); }
+        .blue-gradient-bg { background: var(--bg-blue-gradient); }
+        .text-teal { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <!-- Sticky navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="logo"><h2>👨‍⚕️ THE DOCTORS CLINIC</h2></div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#why">Why choose us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="tel:09762885557" class="nav-cta"><i class="fas fa-phone-alt"></i> Call Now</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- HERO section (Home) -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div data-aos="fade-up" class="aos-init">
+                <h1>THE DOCTORS CLINIC – Complete Family Medical Care in Baner, Pune</h1>
+                <p class="hero-sub">Trusted neighborhood medical clinic offering emergency care, general medicine, child care, diagnostics, IV saline, nebulization, ECG and vaccinations under one roof.</p>
+                <div class="info-cards">
+                    <span class="info-chip"><i class="fas fa-stethoscope"></i> Medical clinic</span>
+                    <span class="info-chip"><i class="fas fa-star"></i> 4.8 / 5 (Google)</span>
+                    <span class="info-chip"><i class="fas fa-map-pin"></i> Baner, Pune</span>
+                    <span class="info-chip"><i class="fas fa-phone"></i> 097628 85557</span>
+                    <span class="info-chip"><i class="fas fa-clock"></i> Open today · Closes 9:30 pm</span>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary">📅 Book Appointment</button>
+                    <button class="btn btn-outline" onclick="window.location.href='tel:09762885557'">📞 Call Now</button>
+                </div>
+            </div>
+            <!-- Slider right side -->
+            <div class="slider-container" data-aos="fade-left">
+                <div class="slider-wrapper" id="heroSlider">
+                    <div class="slide active" style="background-image: url('image1.png')"></div>
+                    <div class="slide" style="background-image: url('image2.png')"></div>
+                    <div class="slide" style="background-image: url('image3.png')"></div>
+                    <div class="slide" style="background-image: url('image4.png')"></div>
+                    <div class="slide" style="background-image: url('image5.png')"></div>
+                </div>
+                <button class="slider-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+                <div class="dots" id="sliderDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO + KEY HIGHLIGHTS (Home) -->
+    <section class="blue-gradient-bg">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Welcome to THE DOCTORS CLINIC</h2>
+            <p style="max-width:800px;" data-aos="fade-up">THE DOCTORS CLINIC is a well-established medical clinic in Baner, Pune, known for its personalized care, modern facilities and convenient location on Pashan – Sus Road near Pratham Wines and Kirti Garden. Our team focuses on providing prompt treatment for day-to-day illnesses, minor emergencies and child-related health issues in a comfortable, friendly environment.</p>
+            
+            <div class="grid-4">
+                <div class="icon-card" data-aos="zoom-in"><i class="fas fa-ambulance"></i><h3>Emergency</h3><p>All emergency medical services for common urgent conditions</p></div>
+                <div class="icon-card" data-aos="zoom-in" data-aos-delay="50"><i class="fas fa-diagnoses"></i><h3>General diseases</h3><p>Treatment & routine health problems</p></div>
+                <div class="icon-card" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-flask"></i><h3>In-house lab</h3><p>Blood, urine, sputum collection</p></div>
+                <div class="icon-card" data-aos="zoom-in" data-aos-delay="150"><i class="fas fa-child"></i><h3>Child speciality</h3><p>Pediatric consultations</p></div>
+                <div class="icon-card" data-aos="zoom-in"><i class="fas fa-syringe"></i><h3>IV saline</h3><p>Facility available</p></div>
+                <div class="icon-card" data-aos="zoom-in"><i class="fas fa-wind"></i><h3>Nebulization</h3><p>For respiratory relief</p></div>
+                <div class="icon-card" data-aos="zoom-in"><i class="fas fa-heartbeat"></i><h3>ECG facility</h3><p>Quick cardiac assessment</p></div>
+                <div class="icon-card" data-aos="zoom-in"><i class="fas fa-shield-virus"></i><h3>Vaccinations</h3><p>Children & adults</p></div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- ABOUT US PAGE (beige bg + mission/vision) -->
+    <section id="about" class="beige-bg">
+        <div class="container">
+            <div class="about-grid">
+                <img src="image1.png" alt="Clinic" class="about-img" data-aos="fade-right">
+                <div data-aos="fade-left">
+                    <h2 class="section-title">About THE DOCTORS CLINIC</h2>
+                    <p>THE DOCTORS CLINIC in Baner, Pune, is designed as a neighborhood health center where families can walk in for routine consultations, emergency care and ongoing health management. The clinic combines accessibility, affordability and modern medical facilities to ensure that quality healthcare is available close to home. The clinic caters to patients of all age groups, with a special focus on children and family medicine. With extended evening hours up to 9:30 pm, working professionals and parents can conveniently consult the doctor after work or school.</p>
+                </div>
+            </div>
+            <!-- Mission Vision Cards -->
+            <div class="mission-vision">
+                <div class="mv-card" data-aos="flip-left"><i class="fas fa-bullseye fa-3x text-teal"></i><h3>Mission</h3><p>To provide prompt, ethical and evidence-based medical care for common illnesses, emergencies and preventive health needs in a safe, friendly environment.</p></div>
+                <div class="mv-card" data-aos="flip-right"><i class="fas fa-eye fa-3x text-teal"></i><h3>Vision</h3><p>To be Baner’s preferred family clinic, known for trustworthy diagnosis, compassionate treatment and comprehensive basic medical services under one roof.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY PATIENTS CHOOSE US (testimonials) -->
+    <section id="why">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Why patients choose us</h2>
+            <div class="grid-4" style="grid-template-columns:repeat(auto-fit, minmax(240px,1fr));">
+                <div class="testimonial-card" data-aos="fade-right"><i class="fas fa-quote-left fa-2x text-teal"></i><p>Patients appreciate the clinic’s clean ambience, professional staff and personal attention.</p><div class="stars">★★★★★</div><b>– Sharma family</b></div>
+                <div class="testimonial-card" data-aos="fade-right" data-aos-delay="50"><i class="fas fa-quote-left fa-2x text-teal"></i><p>“Best service” and “Best ambience” – top-notch medical care with a personal touch.</p><div class="stars">★★★★★</div><b>– Priya M.</b></div>
+                <div class="testimonial-card" data-aos="fade-right" data-aos-delay="100"><i class="fas fa-quote-left fa-2x text-teal"></i><p>Very child-friendly doctors. Our go-to clinic in Baner.</p><div class="stars">★★★★★</div><b>– Kirti G.</b></div>
+                <div class="testimonial-card" data-aos="fade-right" data-aos-delay="150"><i class="fas fa-quote-left fa-2x text-teal"></i><p>Extended evening hours are a lifesaver for working parents.</p><div class="stars">★★★★★</div><b>– Amit D.</b></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SERVICES PAGE -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="service-grid">
+                <!-- 8 cards with images -->
+                <div class="service-card" data-aos="fade-up"><div class="service-img" style="background-image:url('image7.png')"></div><div class="service-content"><i class="fas fa-bolt"></i><h3>Emergency Medical Services</h3><p>Immediate care for urgent conditions.</p></div></div>
+                <div class="service-card" data-aos="fade-up"><div class="service-img" style="background-image:url('image8.png')"></div><div class="service-content"><i class="fas fa-user-md"></i><h3>General Medicine & Family Care</h3><p>Comprehensive family health.</p></div></div>
+                <div class="service-card" data-aos="fade-up"><div class="service-img" style="background-image:url('image9.png')"></div><div class="service-content"><i class="fas fa-baby"></i><h3>Child Speciality (Pediatrics)</h3><p>Expert care for children.</p></div></div>
+                <div class="service-card" data-aos="fade-up"><div class="service-img" style="background-image:url('image10.png')"></div><div class="service-content"><i class="fas fa-microscope"></i><h3>Diagnostic Tests – Blood, Urine, Sputum</h3><p>In-house collection.</p></div></div>
+                <div class="service-card" data-aos="fade-up"><div class="service-img" style="background-image:url('image11.png')"></div><div class="service-content"><i class="fas fa-syringe"></i><h3>IV Saline Facility</h3><p>Rehydration & therapy.</p></div></div>
+                <div class="service-card" data-aos="fade-up"><div class="service-img" style="background-image:url('image12.png')"></div><div class="service-content"><i class="fas fa-lungs"></i><h3>Nebulization Services</h3><p>Breathing treatments.</p></div></div>
+                <div class="service-card" data-aos="fade-up"><div class="service-img" style="background-image:url('image13.png')"></div><div class="service-content"><i class="fas fa-heart"></i><h3>ECG Facility</h3><p>Quick cardiac screening.</p></div></div>
+                <div class="service-card" data-aos="fade-up"><div class="service-img" style="background-image:url('image14.png')"></div><div class="service-content"><i class="fas fa-syringe"></i><h3>Vaccinations</h3><p>Child & adult immunizations.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ PAGE -->
+    <section id="faq" class="blue-gradient-bg">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item active"><div class="faq-question">What kind of clinic is THE DOCTORS CLINIC? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">A modern family medical practice in Baner offering comprehensive primary care, emergency, and pediatric services.</div></div>
+                <div class="faq-item"><div class="faq-question">Do I need an appointment? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Walk-ins are welcome, but appointments reduce wait time. You can call 097628 85557.</div></div>
+                <div class="faq-item"><div class="faq-question">Does the clinic treat children? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Absolutely, we have dedicated pediatric services and child-friendly doctors.</div></div>
+                <div class="faq-item"><div class="faq-question">What tests are available? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Blood, urine, sputum collection, ECG, and more – all in-house.</div></div>
+                <div class="faq-item"><div class="faq-question">Where exactly is the clinic located? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">UNIT NO. 4, Mount Unique Residences, Pashan–Sus Rd, near PRATHAM WINES, opposite Kirti Garden, Baner, Pune.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT US PAGE -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-details" data-aos="fade-right">
+                    <h3>THE DOCTORS CLINIC – Medical clinic in Baner, Pune</h3>
+                    <p><i class="fas fa-map-pin text-teal"></i> UNIT NO. 4, Mount Unique Residences, Pashan – Sus Road, near PRATHAM WINES, In front of KIRTI GARDEN, Baner, Pune 411045</p>
+                    <p><i class="fas fa-phone-alt text-teal"></i> 097628 85557</p>
+                    <p><i class="fas fa-clock text-teal"></i> Open today · Closes 9:30 pm</p>
+                    <div class="map-placeholder"><i class="fas fa-map-marked-alt fa-3x"></i> Google Map will be embedded here</div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contactForm">
+                        <div class="form-group"><input type="text" placeholder="Name" required></div>
+                        <div class="form-group"><input type="tel" placeholder="Phone" required></div>
+                        <div class="form-group"><input type="email" placeholder="Email"></div>
+                        <div class="form-group"><textarea rows="4" placeholder="Message"></textarea></div>
+                        <button type="submit" class="btn btn-primary">Send Enquiry</button>
+                        <div id="formSuccess" class="success-message" style="display:none;">✓ Enquiry sent! We'll call you soon.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col"><h4>THE DOCTORS CLINIC</h4><p>Complete Family Medical Care in Baner, Pune. Trusted, modern, and compassionate.</p><div class="social-icons"><i class="fab fa-facebook"></i><i class="fab fa-instagram"></i><i class="fab fa-whatsapp"></i></div></div>
+            <div class="footer-col"><h4>Quick Links</h4><p><a href="#">Home</a></p><p><a href="#about">About Us</a></p><p><a href="#why">Why choose us</a></p><p><a href="#services">Services</a></p><p><a href="#faq">FAQ</a></p><p><a href="#contact">Contact</a></p></div>
+            <div class="footer-col"><h4>Services</h4><p>Emergency</p><p>General Medicine</p><p>Pediatrics</p><p>Diagnostics</p><p>Vaccinations</p></div>
+            <div class="footer-col"><h4>Contact</h4><p><i class="fas fa-phone"></i> 097628 85557</p><p>📍 UNIT NO. 4, Baner</p><p>🕒 9:30 am – 9:30 pm</p></div>
+        </div>
+        <div class="container" style="text-align:center; margin-top:2rem; border-top:1px solid #334155; padding-top:2rem;">© 2025 THE DOCTORS CLINIC. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Navbar shadow & mobile toggle
+        window.addEventListener('scroll', ()=> {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY>20);
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', ()=> navMenu.classList.toggle('active'));
+
+        // Image slider
+        const slides = document.querySelectorAll('.slide');
+        const prev = document.getElementById('prevSlide');
+        const next = document.getElementById('nextSlide');
+        const dotsContainer = document.getElementById('sliderDots');
+        let current = 0;
+        const total = slides.length;
+
+        function createDots() {
+            for(let i=0; i<total; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if(i===0) dot.classList.add('active');
+                dot.dataset.index = i;
+                dot.addEventListener('click', (e)=> goToSlide(parseInt(e.target.dataset.index)));
+                dotsContainer.appendChild(dot);
+            }
+        }
+        function updateDots() {
+            document.querySelectorAll('.dot').forEach((d,i)=> d.classList.toggle('active', i===current));
+        }
+        function goToSlide(index) {
+            slides.forEach((s,i)=> s.classList.toggle('active', i===index));
+            current = index;
+            updateDots();
+        }
+        function nextSlide() { goToSlide((current+1)%total); }
+        function prevSlide() { goToSlide((current-1+total)%total); }
+
+        prev.addEventListener('click', prevSlide);
+        next.addEventListener('click', nextSlide);
+        createDots();
+        setInterval(nextSlide, 5000); // auto
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', ()=> {
+                const item = q.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Contact form success message
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const msg = document.getElementById('formSuccess');
+            msg.style.display = 'block';
+            setTimeout(() => msg.style.display = 'none', 4000);
+            e.target.reset();
+        });
+
+        // simple scroll animation observer
+        const aosElements = document.querySelectorAll('[data-aos]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) entry.target.classList.add('aos-animate');
+            });
+        }, { threshold: 0.2 });
+        aosElements.forEach(el => observer.observe(el));
+
+        // smooth scrolling for nav links
+        document.querySelectorAll('.nav-menu a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) target.scrollIntoView({behavior: 'smooth'});
+                if(window.innerWidth<768) navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
